@@ -1,0 +1,1 @@
+python3 1889110444_9554140103_3139067082_basic.py -i input.txt -o output.txt

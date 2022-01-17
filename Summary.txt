@@ -1,0 +1,48 @@
+CSCI 570 Project Summary Report
+Sequence Alignment
+(Dhwanil Shah, Advait Rane, Sean Vovan)
+
+Code Usage
+The folder provides two scripts to run the basic and efficient string alignment code. These scripts can take an input file path and an output file path as arguments. The default values of these arguments are set to input.txt and output.txt, respectively.
+
+You can run the following commands on your terminal to run the scripts.
+$ python3 1889110444_9554140103_3139067082_basic.py -i <input filepath> -o <output filepath>
+or
+$ python3 1889110444_9554140103_3139067082_efficient.py -i <input filepath> -o <output filepath>
+For example - 
+$ python3 1889110444_9554140103_3139067082_efficient.py -i io_files/input/input1.txt -o io_files/output/output1.txt
+
+Observations :-
+
+1) CPU Time vs Problem Size :
+- Generally, the time taken by the space efficient version is larger than the basic version.
+- For small inputs, there isn't much difference in the running time.
+- However, as the input grows the difference keeps on increasing between the two. Theoretically, the running time of the efficient version should be twice that of the basic version, and that can be seen to an extent in the graph. 
+- There are exceptions, which occur when one of the input string is small and the other one is large. In such cases we can see similar running times in both versions( the space efficient version dips down to the basic version while the basic version experiences an isolated spike to meet the space efficient version).
+
+Big O notation for running time:
+The efficient version takes approximately two times as long as the basic version.
+Since we effectively calculate the entire opt array at each divide step in the efficient version, it is bound to take longer.
+However, our problem size gets divided in half for each divide step, and the cumulative time taken is approximately only twice the basic version.
+Thus the time taken is asymptotically of the same order.
+- Time for the basic version is O(mn)
+- Time for the efficient version is Cmn + Cmn/2 + Cmn/4 + ... = 2Cmn = O(mn)
+
+2) Memory Space vs  Problem Size:
+- Generally, the memory occupied by the efficient version is less than that of the basic version.
+- Even for small problem sizes the difference in memory usage is significant
+- For large problem sizes the difference in both algorithms is relatively constant and the lines follow similar trends.
+- For smaller problem sizes there are a few exceptions when the space required by the efficient and the basic version is very similar. This to our observation is because the input is such that only one string is responsible for most of the problem size. Hence the other string is small enough that the divide step doesn't repeat multiple times and thus direct basic alignment algorithm is run on it. Hence, giving similar memory space utilization.
+-As seen in out the Memory plot, the 2 graphs are both constantly increasing, but are not very smooth. This is because we tested a mix of inputs (strings of the same length and strings of different lengths). If we were to only use strings of the same length, we would expect that graph to have a much smoother shape, similar to a standard exponential graph. The dips and spikes in the basic and efficient versions respectively are caused by the different string lengths. Regardless, the expected observable behavior between the basic and space efficient versions of the sequence alignment problems still hold (that the efficient version uses much less memory in comparison to the basic version)
+
+
+Contributions :-
+
+1) 1889110444 (Dhwanil Shah) :
+Coding, Testing, Plotting
+
+2) 9554140103 (Advait Rane):
+Coding, Report Preparation
+
+3) 3139067082 (Sean Vovan) :
+Coding, Report Preparation
